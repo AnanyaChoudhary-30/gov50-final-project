@@ -11,4 +11,11 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to Indian politics with respect to recent rise in Hindu extremism in elections.
+
+Is the political Muslim representation in India reducing with the rise of Hindu Nationalism in India ever since the ruling party - Bhartiya Janta Party - came into power?
+India is home to some two hundred million Muslims, one of the world’s largest Muslim populations but a minority in the predominantly Hindu country. Since India’s independence, Muslims have faced systematic discrimination, prejudice, and violence, despite constitutional protections.
+Experts say anti-Muslim sentiments have heightened under the leadership of Prime Minister Narendra Modi and the ruling Bharatiya Janata Party (BJP), which has pursued a Hindu nationalist agenda since elected to power in 2014. My hypothesis is that since Modi’s reelection in 2019, the government has pushed controversial policies that explicitly ignore Muslims’ rights in the political spectrum and deliberately reduce their representation. My sample consists of datasets that have the names of the Chief Ministers(CM) of each state of India. While their religion is not mentioned as a variable name, their surnames are indicative of their caste and religion. Therefore, the main variable I will be using is the name of the CMs and I will use the dataset to see how many muslims came into power as CMs ever since 2014. If the surname is any from the website mentioned below they will fall into the list of being a Muslim CM. When I run my regression of the count of Muslim surnames and I find a decreasing count since 2014 then this would indicate support for my hypothesis.
+Muslim surnames: https://www.familyeducation.com/baby-names/surname/origin/muslim
+Dataset: https://github.com/tcpd/cm-data-release
+Codebook: https://github.com/tcpd/cabinet_data/blob/master/codebook_cabinet_v1-1.pdf
+
