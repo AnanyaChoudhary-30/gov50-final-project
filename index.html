@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1517,8 +1517,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="project-thoughts">Project thoughts</h2>
-<p>I am interested in exploring data related to Indian politics with respect to recent rise in Hindu extremism in elections.</p>
+<h2 id="project-thought">Project thought</h2>
+<p>Is the political Muslim representation in India reducing with the rise of Hindu Nationalism in India ever since the ruling party - Bhartiya Janta Party - came into power?
+India is home to some two hundred million Muslims, one of the world’s largest Muslim populations but a minority in the predominantly Hindu country. Since India’s independence, Muslims have faced systematic discrimination, prejudice, and violence, despite constitutional protections.
+Experts say anti-Muslim sentiments have heightened under the leadership of Prime Minister Narendra Modi and the ruling Bharatiya Janata Party (BJP), which has pursued a Hindu nationalist agenda since elected to power in 2014. My hypothesis is that since Modi’s reelection in 2019, the government has pushed controversial policies that explicitly ignore Muslims’ rights in the political spectrum and deliberately reduce their representation. My sample consists of datasets that have the names of the Chief Ministers(CM) of each state of India. While their religion is not mentioned as a variable name, their surnames are indicative of their caste and religion. Therefore, the main variable I will be using is the name of the CMs and I will use the dataset to see how many muslims came into power as CMs ever since 2014. If the surname is any from the website mentioned below they will fall into the list of being a Muslim CM. When I run my regression of the count of Muslim surnames and I find a decreasing count since 2014 then this would indicate support for my hypothesis.
+Muslim surnames: <a href="https://www.familyeducation.com/baby-names/surname/origin/muslim" class="uri">https://www.familyeducation.com/baby-names/surname/origin/muslim</a>
+Dataset: <a href="https://github.com/tcpd/cm-data-release" class="uri">https://github.com/tcpd/cm-data-release</a>
+Codebook: <a href="https://github.com/tcpd/cabinet_data/blob/master/codebook_cabinet_v1-1.pdf" class="uri">https://github.com/tcpd/cabinet_data/blob/master/codebook_cabinet_v1-1.pdf</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
