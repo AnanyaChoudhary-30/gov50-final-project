@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["data/SYB65_317_202209_Seats held by women in Parliament.csv","data/SYB65_319_202209_Ratio of girls to boys in education.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-1-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1518,13 +1518,272 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <h2 id="project-thought">Project thought</h2>
-<p>Is the political Muslim representation in India reducing with the rise of Hindu Nationalism in India ever since the ruling party - Bhartiya Janta Party - came into power?
-India is home to some two hundred million Muslims, one of the world’s largest Muslim populations but a minority in the predominantly Hindu country. Since India’s independence, Muslims have faced systematic discrimination, prejudice, and violence, despite constitutional protections.
-Experts say anti-Muslim sentiments have heightened under the leadership of Prime Minister Narendra Modi and the ruling Bharatiya Janata Party (BJP), which has pursued a Hindu nationalist agenda since elected to power in 2014. My hypothesis is that since Modi’s reelection in 2019, the government has pushed controversial policies that explicitly ignore Muslims’ rights in the political spectrum and deliberately reduce their representation. My sample consists of datasets that have the names of the Chief Ministers(CM) of each state of India. While their religion is not mentioned as a variable name, their surnames are indicative of their caste and religion. Therefore, the main variable I will be using is the name of the CMs and I will use the dataset to see how many muslims came into power as CMs ever since 2014. If the surname is any from the website mentioned below they will fall into the list of being a Muslim CM. When I run my regression of the count of Muslim surnames and I find a decreasing count since 2014 then this would indicate support for my hypothesis.
-Muslim surnames: <a href="https://www.familyeducation.com/baby-names/surname/origin/muslim" class="uri">https://www.familyeducation.com/baby-names/surname/origin/muslim</a>
-Dataset: <a href="https://github.com/tcpd/cm-data-release" class="uri">https://github.com/tcpd/cm-data-release</a>
-Codebook: <a href="https://github.com/tcpd/cabinet_data/blob/master/codebook_cabinet_v1-1.pdf" class="uri">https://github.com/tcpd/cabinet_data/blob/master/codebook_cabinet_v1-1.pdf</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Is female representation in the parliament of a country a direct result of their access to education?
+The direct correlation between women’s representation in parliamentary bodies and their access to education is a well-documented and essential aspect of gender equality. Access to education equips women with the knowledge, skills, and confidence necessary to participate actively in the political sphere. Education can empower women to understand their rights, engage in public discourse, and navigate complex policy issues effectively. By investing in women’s education, nations are not only fostering greater political inclusivity but also reaping the benefits of a more diverse and informed decision-making process. As women gain access to quality education, they are more likely to break through traditional gender roles and stereotypes, ultimately leading to increased female participation in political leadership positions, which is vital for a more equitable and representative democracy. My hypothesis is that as the access to education for women increases, their political representation also increases. My sample consists of two dataseets from the UN about all the member countries’ seats held by women in the parliament and the gender ratio in access to education. For the project I will be focusing on South Asian countries. If I find that as the education level over the years of women in South Asian country increases alongside their political representation then it will support my hypothesis.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/sfirke/janitor'>janitor</a></span><span class='op'>)</span></span>
+<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"data/SYB65_317_202209_Seats held by women in Parliament.csv"</span>, skip <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'>janitor</span><span class='fu'>::</span><span class='fu'><a href='https://sfirke.github.io/janitor/reference/clean_names.html'>clean_names</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>country <span class='op'>=</span> <span class='va'>x2</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>only_countries</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>==</span> <span class='st'>"India"</span><span class='op'>|</span> <span class='va'>country</span> <span class='op'>==</span><span class='st'>"Pakistan"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"China"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Bangladesh"</span><span class='op'>|</span><span class='va'>country</span><span class='op'>==</span><span class='st'>"Nepal"</span><span class='op'>)</span></span>
+<span><span class='va'>only_countries</span></span></code></pre>
+</div>
+<pre><code># A tibble: 43 × 9
+   region_country_area country     year series      last_election_date
+                 &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;             
+ 1                  50 Bangladesh  2000 Seats held… 2018-12           
+ 2                  50 Bangladesh  2005 Seats held… 2018-12           
+ 3                  50 Bangladesh  2010 Seats held… 2018-12           
+ 4                  50 Bangladesh  2015 Seats held… 2018-12           
+ 5                  50 Bangladesh  2018 Seats held… 2018-12           
+ 6                  50 Bangladesh  2019 Seats held… 2018-12           
+ 7                  50 Bangladesh  2020 Seats held… 2018-12           
+ 8                  50 Bangladesh  2021 Seats held… 2018-12           
+ 9                  50 Bangladesh  2022 Seats held… 2018-12           
+10                 156 China       2000 Seats held… 2018-03           
+# ℹ 33 more rows
+# ℹ 4 more variables: last_election_date_footnote &lt;lgl&gt;, value &lt;dbl&gt;,
+#   footnotes &lt;chr&gt;, source &lt;chr&gt;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>country</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+                  Afghanistan                       Albania 
+                            6                             9 
+                      Algeria                       Andorra 
+                            9                             9 
+                       Angola           Antigua and Barbuda 
+                            9                             9 
+                    Argentina                       Armenia 
+                            9                             9 
+                         Asia                     Australia 
+                            9                             9 
+    Australia and New Zealand                       Austria 
+                            9                             9 
+                   Azerbaijan                       Bahamas 
+                            9                             9 
+                      Bahrain                    Bangladesh 
+                            8                             9 
+                     Barbados                       Belarus 
+                            9                             9 
+                      Belgium                        Belize 
+                            9                             9 
+                        Benin                        Bhutan 
+                            9                             9 
+   Bolivia (Plurin. State of)        Bosnia and Herzegovina 
+                            9                             9 
+                     Botswana                        Brazil 
+                            9                             9 
+            Brunei Darussalam                      Bulgaria 
+                            5                             9 
+                 Burkina Faso                       Burundi 
+                            9                             9 
+                   Cabo Verde                      Cambodia 
+                            9                             9 
+                     Cameroon                        Canada 
+                            9                             9 
+                    Caribbean     Caucasus and Central Asia 
+                            9                             8 
+     Central African Republic               Central America 
+                            7                             9 
+                 Central Asia                          Chad 
+                            9                             9 
+                        Chile                         China 
+                            8                             9 
+                     Colombia                       Comoros 
+                            9                             7 
+                        Congo                    Costa Rica 
+                            9                             9 
+                Côte d’Ivoire                       Croatia 
+                            9                             9 
+                         Cuba                        Cyprus 
+                            9                             9 
+                      Czechia      Dem. People&#39;s Rep. Korea 
+                            9                             9 
+       Dem. Rep. of the Congo                       Denmark 
+                            8                             9 
+                     Djibouti                      Dominica 
+                            9                             9 
+           Dominican Republic                Eastern Africa 
+                            9                             9 
+                 Eastern Asia                Eastern Europe 
+                            9                             9 
+                      Ecuador                         Egypt 
+                            9                             5 
+                  El Salvador             Equatorial Guinea 
+                            9                             9 
+                      Eritrea                       Estonia 
+                            6                             9 
+                     Eswatini                      Ethiopia 
+                            9                             9 
+                       Europe                          Fiji 
+                            9                             8 
+                      Finland                        France 
+                            9                             9 
+                        Gabon                        Gambia 
+                            9                             9 
+                      Georgia                       Germany 
+                            9                             9 
+                        Ghana                        Greece 
+                            9                             9 
+                      Grenada                     Guatemala 
+                            9                             9 
+                       Guinea                 Guinea-Bissau 
+                            7                             9 
+                       Guyana                         Haiti 
+                            9                             7 
+                     Honduras                       Hungary 
+                            9                             9 
+                      Iceland                         India 
+                            9                             9 
+                    Indonesia    Iran (Islamic Republic of) 
+                            9                             9 
+                         Iraq                       Ireland 
+                            8                             9 
+                       Israel                         Italy 
+                            9                             9 
+                      Jamaica                         Japan 
+                            9                             9 
+                       Jordan                    Kazakhstan 
+                            9                             9 
+                        Kenya                      Kiribati 
+                            9                             9 
+                       Kuwait                    Kyrgyzstan 
+                            9                             9 
+       Lao People&#39;s Dem. Rep. Latin America &amp; the Caribbean 
+                            9                             9 
+                       Latvia                          LDC§ 
+                            9                             9 
+                      Lebanon                       Lesotho 
+                            9                             9 
+                      Liberia                         Libya 
+                            9                             7 
+                Liechtenstein                     Lithuania 
+                            9                             9 
+                   Luxembourg                    Madagascar 
+                            9                             8 
+                       Malawi                      Malaysia 
+                            9                             9 
+                     Maldives                          Mali 
+                            9                             9 
+                        Malta              Marshall Islands 
+                            9                             9 
+                   Mauritania                     Mauritius 
+                            9                             9 
+                    Melanesia                        Mexico 
+                            9                             9 
+                   Micronesia   Micronesia (Fed. States of) 
+                            9                             9 
+                Middle Africa                        Monaco 
+                            9                             9 
+                     Mongolia                    Montenegro 
+                            9                             7 
+                      Morocco                    Mozambique 
+                            9                             9 
+                      Myanmar                       Namibia 
+                            6                             9 
+                        Nauru                         Nepal 
+                            9                             8 
+                  Netherlands                   New Zealand 
+                            9                             9 
+                    Nicaragua                         Niger 
+                            9                             9 
+                      Nigeria               North Macedonia 
+                            8                             9 
+              Northern Africa              Northern America 
+                            9                             9 
+              Northern Europe                        Norway 
+                            9                             9 
+                      Oceania                          Oman 
+                            9                             8 
+                     Pakistan                         Palau 
+                            8                             9 
+                       Panama              Papua New Guinea 
+                            9                             9 
+                     Paraguay                          Peru 
+                            9                             9 
+                  Philippines                        Poland 
+                            9                             9 
+                    Polynesia                      Portugal 
+                            9                             9 
+                        Qatar             Republic of Korea 
+                            7                             9 
+          Republic of Moldova                       Romania 
+                            9                             9 
+           Russian Federation                        Rwanda 
+                            9                             9 
+        Saint Kitts and Nevis                   Saint Lucia 
+                            9                             9 
+   Saint Vincent &amp; Grenadines                         Samoa 
+                            9                             9 
+                   San Marino         Sao Tome and Principe 
+                            9                             9 
+                 Saudi Arabia                       Senegal 
+                            8                             9 
+                       Serbia   Serbia and Monten. [former] 
+                            7                             2 
+                   Seychelles                  Sierra Leone 
+                            9                             9 
+                    Singapore                      Slovakia 
+                            9                             9 
+                     Slovenia               Solomon Islands 
+                            9                             9 
+                      Somalia                  South Africa 
+                            7                             9 
+                South America                   South Sudan 
+                            9                             6 
+           South-eastern Asia               Southern Africa 
+                            9                             9 
+                Southern Asia               Southern Europe 
+                            9                             9 
+                        Spain                     Sri Lanka 
+                            9                             9 
+           Sub-Saharan Africa                         Sudan 
+                            9                             3 
+               Sudan [former]                      Suriname 
+                            3                             9 
+                       Sweden                   Switzerland 
+                            9                             9 
+         Syrian Arab Republic                    Tajikistan 
+                            9                             9 
+                     Thailand                   Timor-Leste 
+                            9                             8 
+                         Togo                         Tonga 
+                            9                             9 
+Total, all countries or areas           Trinidad and Tobago 
+                            9                             9 
+                      Tunisia                       Türkiye 
+                            9                             9 
+                 Turkmenistan                        Tuvalu 
+                            8                             9 
+                       Uganda                       Ukraine 
+                            9                             9 
+         United Arab Emirates                United Kingdom 
+                            9                             9 
+      United Rep. of Tanzania      United States of America 
+                            9                             9 
+                      Uruguay                    Uzbekistan 
+                            9                             9 
+                      Vanuatu    Venezuela (Boliv. Rep. of) 
+                            9                             8 
+                     Viet Nam                Western Africa 
+                            9                             9 
+                 Western Asia                Western Europe 
+                            9                             9 
+                        Yemen                        Zambia 
+                            9                             9 
+                     Zimbabwe 
+                            9 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>only_countries</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>value</span>, color <span class='op'>=</span> <span class='va'>country</span>, fill <span class='op'>=</span> <span class='va'>country</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>country</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

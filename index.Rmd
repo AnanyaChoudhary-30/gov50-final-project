@@ -11,11 +11,25 @@ output:
 
 ## Project thought
 
+Is female representation in the parliament of a country a direct result of their access to education?
+The direct correlation between women's representation in parliamentary bodies and their access to education is a well-documented and essential aspect of gender equality. Access to education equips women with the knowledge, skills, and confidence necessary to participate actively in the political sphere. Education can empower women to understand their rights, engage in public discourse, and navigate complex policy issues effectively. By investing in women's education, nations are not only fostering greater political inclusivity but also reaping the benefits of a more diverse and informed decision-making process. As women gain access to quality education, they are more likely to break through traditional gender roles and stereotypes, ultimately leading to increased female participation in political leadership positions, which is vital for a more equitable and representative democracy. My hypothesis is that as the access to education for women increases, their political representation also increases. My sample consists of two dataseets from the UN about all the member countries' seats held by women in the parliament and the gender ratio in access to education. For the project I will be focusing on South Asian countries. If I find that as the education level over the years of women in South Asian country increases alongside their political representation then it will support my hypothesis.  
 
-Is the political Muslim representation in India reducing with the rise of Hindu Nationalism in India ever since the ruling party - Bhartiya Janta Party - came into power?
-India is home to some two hundred million Muslims, one of the world’s largest Muslim populations but a minority in the predominantly Hindu country. Since India’s independence, Muslims have faced systematic discrimination, prejudice, and violence, despite constitutional protections.
-Experts say anti-Muslim sentiments have heightened under the leadership of Prime Minister Narendra Modi and the ruling Bharatiya Janata Party (BJP), which has pursued a Hindu nationalist agenda since elected to power in 2014. My hypothesis is that since Modi’s reelection in 2019, the government has pushed controversial policies that explicitly ignore Muslims’ rights in the political spectrum and deliberately reduce their representation. My sample consists of datasets that have the names of the Chief Ministers(CM) of each state of India. While their religion is not mentioned as a variable name, their surnames are indicative of their caste and religion. Therefore, the main variable I will be using is the name of the CMs and I will use the dataset to see how many muslims came into power as CMs ever since 2014. If the surname is any from the website mentioned below they will fall into the list of being a Muslim CM. When I run my regression of the count of Muslim surnames and I find a decreasing count since 2014 then this would indicate support for my hypothesis.
-Muslim surnames: https://www.familyeducation.com/baby-names/surname/origin/muslim
-Dataset: https://github.com/tcpd/cm-data-release
-Codebook: https://github.com/tcpd/cabinet_data/blob/master/codebook_cabinet_v1-1.pdf
+
+
+```{r}
+library(tidyverse)
+library(janitor)
+df <- read_csv("data/SYB65_317_202209_Seats held by women in Parliament.csv", skip = 1) |>
+  janitor::clean_names() |>
+  rename(country = x2) 
+
+only_countries <- df |>
+  filter(country == "India"| country =="Pakistan"|country =="China"|country =="Bangladesh"|country=="Nepal")
+only_countries
+table(df$country)
+  
+ggplot(data = only_countries, mapping=aes(x=year, y=value, color = country, fill = country)) + geom_point() + geom_smooth(method = "lm", se = FALSE) + facet_wrap(~country)
+
+```
+
 
