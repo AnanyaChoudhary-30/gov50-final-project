@@ -20,7 +20,7 @@ The direct correlation between women's representation in parliamentary bodies an
 library(tidyverse)
 library(janitor)
 df <- read_csv("data/SYB65_317_202209_Seats held by women in Parliament.csv", skip = 1) |>
-  janitor::clean_names() |>
+  janitor::clean_names() |> 
   rename(country = x2) 
 
 only_countries <- df |>
