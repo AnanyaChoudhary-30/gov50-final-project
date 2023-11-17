@@ -19,7 +19,7 @@ The direct correlation between women's representation in parliamentary bodies an
 ```{r}
 library(tidyverse)
 library(janitor)
-df <- read_csv("data/SYB65_317_202209_Seats held by women in Parliament.csv", skip = 1) |>
+df <- read_csv("SYB65_317_202209_Seats held by women in Parliament.csv", skip = 1) |>
   janitor::clean_names() |> 
   rename(country = x2) 
 
@@ -29,5 +29,19 @@ only_countries <- df |>
 ggplot(data = only_countries, mapping=aes(x=year, y=value, color = country, fill = country)) + geom_point() + geom_smooth(method = "lm", se = FALSE) + facet_wrap(~country) 
 
 ```
+##milestone 4 (second visualization)
+```{r}
+daf <- read_csv("SYB65_319_202209_Ratio of girls to boys in education.csv", skip = 1) %>% 
+ janitor::clean_names() |> 
+  rename(country = x2) 
 
+only_countries_edu <- daf |>
+  filter(country == "India"| country =="Pakistan"|country =="China"|country =="Bangladesh"|country=="Nepal")
+
+ggplot(data = only_countries_edu, mapping=aes(x=year, y=value, color = series, fill = series)) + geom_point() + 
+  geom_smooth(method = "lm", se = FALSE) + facet_wrap(~country) 
+
+
+
+```
 
