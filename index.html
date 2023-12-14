@@ -1519,18 +1519,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="introduction-of-the-project">Introduction of the project</h2>
-<p>Is female representation in the parliament of a country a direct result of their access to education?
-The direct correlation between women’s representation in parliamentary bodies and their access to education is a well-documented and essential aspect of gender equality. Access to education equips women with the knowledge, skills, and confidence necessary to participate actively in the political sphere. Education can empower women to understand their rights, engage in public discourse, and navigate complex policy issues effectively. As women gain access to quality education, they are more likely to break through traditional gender roles and stereotypes, ultimately leading to increased female participation in political leadership positions, which is vital for a more equitable and representative democracy. My hypothesis is that as the access to education for women increases, their political representation in the parliament also increases. My sample consists of two datasets from the United Nations Organisation about all the member countries’ seats held by women in the parliament and the gender ratio in access to education. For this project I have focused on South Asian countries namely India, Pakistan, Nepal, Bangladesh and Sri Lanka only. The goal is to determine whether there is a connection between access to education and political representation in the parliament in the context of women.</p>
-<p>A reason why this project focuses on South Asian countries is because these are the set of countries with varying levels of all the factors that could potentially affect the connection that has been tried to achieve here. GDP of the country, equitable and easy access to the internet, increasing or decreasing crime rates, reservation quota for women in parliament or even schools, government expenditure on schools and education are all examples of factors that impact the relationship between access to education and political representation in the parliament. This is problem of causality as all these varying levels serve as confounders to the research question. Therefore, to combat this issues and also show the impact such factors have on this relationship, this project draws a comparative analysis between the relationship of the two primary factors once without the confounders and then with the confounders with the help of the concept of regression.</p>
-<p>##Data Section</p>
-<p>#The first dataset on seats held by women in parliament is loaded below. It has further been filtered to only South Asian countries.</p>
+<h1 id="introduction">Introduction</h1>
+<p>Is female representation in the parliament of a country a direct result of their ability to access education?
+The direct correlation between women’s representation in parliamentary bodies and their access to education is a well-documented and essential aspect of gender equality. Access to education equips women with the knowledge, skills, and confidence necessary to participate actively in the political sphere. Education can empower women to understand their rights, engage in public discourse, and navigate complex policy issues effectively. As women gain access to quality education, they are more likely to break through traditional gender roles and stereotypes, ultimately leading to increased female participation in political leadership positions, which is vital for a more equitable and representative democracy. My hypothesis is that as the access to education for women increases, their political representation in the parliament also increases. My sample consists of two data-sets from the United Nations Organisation about all the member countries’ seats held by women in the parliament and the gender ratio in access to education. For this project I have focused on South Asian countries namely India, Pakistan, Nepal, Bangladesh and Sri Lanka only. The goal is to determine whether there is a connection between access to education and political representation in the parliament in the context of women.</p>
+<p>A reason why this project focuses on South Asian countries is because these are the set of countries with varying levels of all the factors that could potentially affect the connection that has been tried to achieve here. GDP of the country, equitable and easy access to the internet, increasing or decreasing crime rates, reservation quota for women in parliament or even schools, government expenditure on schools and education are all examples of factors that impact the relationship between access to education and political representation in the parliament. This is a problem of causality as all these varying levels serve as confounders to the research question. Therefore, to combat these issues and also show the impact such factors have on this relationship, this project draws a comparative analysis between the relationship of the two primary factors once without the confounders and then with the confounders with the help of the concept of regression.</p>
+<h1 id="data-section">Data Section</h1>
+<p>The first dataset on seats held by women in parliament is loaded below. As mentioned above, it has been sourced from the United Nations Organization. It includes the percentage value of the seats held by women in parliament of different countries. It has further been filtered to only South Asian countries.</p>
 <p>Description of variables is as follows:</p>
-<p>region_country_area = country code as per the UN
-country = name of the country
-year = year when the data was recorded
-series = statement explaining the “year” variable
-last_election_date = date when the last election was held
+<p>region_country_area = country code as per the UN,
+country = name of the country,
+year = year when the data was recorded,
+series = statement explaining the “year” variable,
+last_election_date = date when the last election was held,
 value = percentage value of the seats held by women in parliament</p>
 <p>This project only focuses on the usage of the country, year, and value variable.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1548,14 +1548,14 @@ value = percentage value of the seats held by women in parliament</p>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
 </div>
-<p>##Discussion of the plot</p>
-<p>This plot displays the relationship between the representation of women in parliament in percentage and time in years in 5 different South Asian countries. Through this visualization it is evident that percentage representation of women in parliament of Bangladesh, India and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that while Sri Lanka has shown the slightest increase in women representation in the parliament, Pakistan has shown a decrease in the same over the years. Also, it is imperative to note that aside from India, that has shown a consistent growth in the representation of women in parliament over the years, Bangladesh and Nepal show a rather clustered scatterplot with the increment in years.</p>
-<p>#The second dataset on ratio between girls and boys in primary, secondary and upper secondary is loaded below. It has further been filtered to only South Asian countries.</p>
+<h2 id="discussion-of-the-plot">Discussion of the plot</h2>
+<p>This plot displays the relationship between the representation of women in parliament in percentage and time in years in 5 different South Asian countries. Through this visualization it is evident that percentage representation of women in parliament of Bangladesh, India and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that while Sri Lanka has shown the slightest increase in women representation in the parliament, Pakistan has shown a decrease in the same over the years. Also, it is imperative to note that aside from India, that has shown a consistent growth in the representation of women in parliament over the years, Bangladesh and Nepal show a rather clustered scatterplot with the increment in years. The next step in this study is to determine the change in access to education levels over the same time interval in order to draw a conclusion to support my hypothesis.</p>
+<p>The second dataset on ratio between girls and boys in primary, secondary and upper secondary is loaded below. It includes the ratio between girls and boys in different levels of education at school that will be helpful in drawing a conclusion for my hypothesis. It has further been filtered to only South Asian countries.</p>
 <p>Description of variables is as follows:</p>
-<p>region_country_area = country code as per the UN
-country = name of the country
-year = year when the data was recorded
-series = breakdown of levels of education into primary, secondary and upper secondary
+<p>region_country_area = country code as per the UN,
+country = name of the country,
+year = year when the data was recorded,
+series = breakdown of levels of education into primary, secondary and upper secondary,
 value = value of the ratio between girls to boys</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1573,7 +1573,73 @@ value = value of the ratio between girls to boys</p>
 </div>
 <p>##Discussion of this plot</p>
 <p>This plot displays the relationship between the ratio of girls and boys in different levels of education and time in years in 5 different South Asian countries. Through this visualization it is evident that ratio of girls and boys in different levels of education in India, Pakistan and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that Sri Lanka has shown the slightest increase in ratio in primary education but a sharp decrease in secondary and upper secondary levels of education. Bangladesh observes a similar trend but in reverse. There is only a slight increase in ratio of girls and boys in primary level of education but a decent increase in secondary and upper secondary levels of education.</p>
-<p>##loading confounder datasets</p>
+<p>#Interpretation of the two plots together:</p>
+<p>In order to support my hypothesis, I needed a direct correlation between the two variables plotted against “year”, that is, percentage value of the seats held by women in parliament and value of the ratio between girls to boys in different education levels. On comparing the two plots, it is concluded that a same trend can be observed for Bangladesh, India and Nepal. In the three countries mentioned, there is both, an increase in ratio between girls and boys in different levels of education and an increase in women in representation in the parliament. This clearly supports my hypothesis. In fact, even the trend observed for Sri Lanka supports my hypothesis to a certain extent as we see a decline in the ratio between girls and boys and a very faint change in increase in percentage of women in the parliament. However, on comparing the trend shown by Pakistan in the two plots we can see that even when there is an increase in the ratio of girls to boys in different education levels over the years, a decline can be seen in the percentage of women in the parliament. This leads one to the question of possible confounders that maybe stopping me from finding the same trend in all countries. Therefore, the next step is to counter the confounders.</p>
+<h1 id="cleaning-data">Cleaning data</h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>education_graph</span> <span class='op'>&lt;-</span> <span class='va'>southasian_countries_edu</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>country</span> , <span class='va'>year</span>, <span class='va'>series</span>, <span class='va'>value</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>series</span>,</span>
+<span>        values_from <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span></span>
+<span><span class='va'>education_graph</span></span></code></pre>
+</div>
+<pre><code># A tibble: 30 × 5
+   country     year Ratio of girls to boys in…¹ Ratio of girls to bo…²
+   &lt;chr&gt;      &lt;dbl&gt;                       &lt;dbl&gt;                  &lt;dbl&gt;
+ 1 Bangladesh  2005                        1.05                   1.07
+ 2 Bangladesh  2010                        1.06                   1.12
+ 3 Bangladesh  2018                        1.07                   1.16
+ 4 Bangladesh  2020                        1.09                   1.21
+ 5 Bangladesh  2015                       NA                      1.13
+ 6 Bangladesh  2019                       NA                      1.17
+ 7 India       1995                        0.83                   0.65
+ 8 India       2010                        1.03                   0.94
+ 9 India       2015                        1.12                   1.02
+10 India       2019                        1.02                   1.02
+# ℹ 20 more rows
+# ℹ abbreviated names:
+#   ¹​`Ratio of girls to boys in primary education`,
+#   ²​`Ratio of girls to boys in secondary education`
+# ℹ 1 more variable:
+#   `Ratio of girls to boys in upper secondary education` &lt;dbl&gt;</code></pre>
+</div>
+<h2 id="joining-the-main-datasets">Joining the main datasets</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>joined_data</span> <span class='op'>&lt;-</span> <span class='va'>southasian_countries</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>education_graph</span> , by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"country"</span>, <span class='st'>"year"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>primary_education_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in primary education"</span>,</span>
+<span>         secondary_eductation_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in secondary education"</span>,</span>
+<span>         uppersecondary_education_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in upper secondary education"</span>,</span>
+<span>        women_seat_percent <span class='op'>=</span> <span class='st'>"value"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>country</span>, <span class='va'>year</span>, <span class='va'>women_seat_percent</span>, <span class='va'>primary_education_ratio</span>, <span class='va'>secondary_eductation_ratio</span>, <span class='va'>uppersecondary_education_ratio</span> <span class='op'>)</span></span>
+<span><span class='va'>joined_data</span></span></code></pre>
+</div>
+<pre><code># A tibble: 43 × 6
+   country     year women_seat_percent primary_education_ratio
+   &lt;chr&gt;      &lt;dbl&gt;              &lt;dbl&gt;                   &lt;dbl&gt;
+ 1 Bangladesh  2000                9.1                   NA   
+ 2 Bangladesh  2005                2                      1.05
+ 3 Bangladesh  2010               18.6                    1.06
+ 4 Bangladesh  2015               20                     NA   
+ 5 Bangladesh  2018               20.3                    1.07
+ 6 Bangladesh  2019               20.7                   NA   
+ 7 Bangladesh  2020               20.9                    1.09
+ 8 Bangladesh  2021               20.9                   NA   
+ 9 Bangladesh  2022               20.9                   NA   
+10 India       2000                9                     NA   
+# ℹ 33 more rows
+# ℹ 2 more variables: secondary_eductation_ratio &lt;dbl&gt;,
+#   uppersecondary_education_ratio &lt;dbl&gt;</code></pre>
+</div>
+<h1 id="loading-confounder-datasets">Loading confounder datasets</h1>
+<p>The two main confounders according to me are GDP of the country and number of people accessing the internet.</p>
+<ol type="1">
+<li><p>GDP is a measure of a country’s economic output. Higher GDP is associated with better economic development that influences both the representation of women in parliament and educational opportunities for girls. In more economically developed countries, there may be greater resources and opportunities for women to participate in politics and for girls to receive education.</p></li>
+<li><p>Access to the internet can provide enhanced educational opportunities for both girls and boys. Additionally, the internet is a powerful tool for raising awareness and promoting empowerment. People who use the internet are conventionally more liberal and therefore may send their girl child to study in school. They are also more likely to promote and support women participation in politics and parliament. On the flip side, if there is a digital gender divide (unequal access to the internet based on gender), it might exacerbate existing gender disparities. This, in turn, could affect the representation of women in parliament and the gender ratio in high schools.</p></li>
+</ol>
+##Loading Confounder data sets
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>GDP</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"GDP per capita.csv"</span>, skip <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
@@ -1643,65 +1709,17 @@ value = value of the ratio between girls to boys</p>
 32  Sri Lanka                                  59.2 2020
 33  Sri Lanka                                  66.7 2021</code></pre>
 </div>
-##cleaning data
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>education_graph</span> <span class='op'>&lt;-</span> <span class='va'>southasian_countries_edu</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>country</span> , <span class='va'>year</span>, <span class='va'>series</span>, <span class='va'>value</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>series</span>,</span>
-<span>        values_from <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span></span>
-<span><span class='va'>education_graph</span></span></code></pre>
-</div>
-<pre><code># A tibble: 30 × 5
-   country     year Ratio of girls to boys in…¹ Ratio of girls to bo…²
-   &lt;chr&gt;      &lt;dbl&gt;                       &lt;dbl&gt;                  &lt;dbl&gt;
- 1 Bangladesh  2005                        1.05                   1.07
- 2 Bangladesh  2010                        1.06                   1.12
- 3 Bangladesh  2018                        1.07                   1.16
- 4 Bangladesh  2020                        1.09                   1.21
- 5 Bangladesh  2015                       NA                      1.13
- 6 Bangladesh  2019                       NA                      1.17
- 7 India       1995                        0.83                   0.65
- 8 India       2010                        1.03                   0.94
- 9 India       2015                        1.12                   1.02
-10 India       2019                        1.02                   1.02
-# ℹ 20 more rows
-# ℹ abbreviated names:
-#   ¹​`Ratio of girls to boys in primary education`,
-#   ²​`Ratio of girls to boys in secondary education`
-# ℹ 1 more variable:
-#   `Ratio of girls to boys in upper secondary education` &lt;dbl&gt;</code></pre>
-</div>
-<p>##joining the main datasets without confounders</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>joined_data</span> <span class='op'>&lt;-</span> <span class='va'>southasian_countries</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>education_graph</span> , by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"country"</span>, <span class='st'>"year"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>primary_education_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in primary education"</span>,</span>
-<span>         secondary_eductation_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in secondary education"</span>,</span>
-<span>         uppersecondary_education_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in upper secondary education"</span>,</span>
-<span>        women_seat_percent <span class='op'>=</span> <span class='st'>"value"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>country</span>, <span class='va'>year</span>, <span class='va'>women_seat_percent</span>, <span class='va'>primary_education_ratio</span>, <span class='va'>secondary_eductation_ratio</span>, <span class='va'>uppersecondary_education_ratio</span> <span class='op'>)</span></span>
-<span><span class='va'>joined_data</span></span></code></pre>
-</div>
-<pre><code># A tibble: 43 × 6
-   country     year women_seat_percent primary_education_ratio
-   &lt;chr&gt;      &lt;dbl&gt;              &lt;dbl&gt;                   &lt;dbl&gt;
- 1 Bangladesh  2000                9.1                   NA   
- 2 Bangladesh  2005                2                      1.05
- 3 Bangladesh  2010               18.6                    1.06
- 4 Bangladesh  2015               20                     NA   
- 5 Bangladesh  2018               20.3                    1.07
- 6 Bangladesh  2019               20.7                   NA   
- 7 Bangladesh  2020               20.9                    1.09
- 8 Bangladesh  2021               20.9                   NA   
- 9 Bangladesh  2022               20.9                   NA   
-10 India       2000                9                     NA   
-# ℹ 33 more rows
-# ℹ 2 more variables: secondary_eductation_ratio &lt;dbl&gt;,
-#   uppersecondary_education_ratio &lt;dbl&gt;</code></pre>
-</div>
-##running regression
+<p>Description of variables of the confounder datasets:</p>
+<p>Dataset 1 - GDP</p>
+<p>country = name of the country,
+gdp_per_capita = GDP per capita of the country,
+year = year in which the GDP was calculated</p>
+<p>Dataset 2 - internet usage</p>
+<p>country = name of the country,
+percentage_individuals_using_internet = percentage of individuals in the entire population of the country using the internet,
+year = year in which the data was observed</p>
+<p>#Result</p>
+<h3 id="running-regression">Running regression</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>women_seat_percent</span> <span class='op'>~</span> <span class='va'>primary_education_ratio</span> , data <span class='op'>=</span> <span class='va'>joined_data</span><span class='op'>)</span> </span>
@@ -1711,7 +1729,7 @@ value = value of the ratio between girls to boys</p>
 <span><span class='va'>regression3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>women_seat_percent</span> <span class='op'>~</span> <span class='va'>primary_education_ratio</span> <span class='op'>+</span> <span class='va'>secondary_eductation_ratio</span> <span class='op'>+</span> <span class='va'>uppersecondary_education_ratio</span> , data <span class='op'>=</span> <span class='va'>joined_data</span><span class='op'>)</span> </span></code></pre>
 </div>
 </div>
-##tidying regression
+<h3 id="tidying-regression">Tidying regression</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://broom.tidymodels.org/'>broom</a></span><span class='op'>)</span></span>

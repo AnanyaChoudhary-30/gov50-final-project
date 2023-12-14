@@ -9,26 +9,26 @@ output:
 
 
 
-## Introduction of the project
+# Introduction
 
-Is female representation in the parliament of a country a direct result of their access to education?
-The direct correlation between women's representation in parliamentary bodies and their access to education is a well-documented and essential aspect of gender equality. Access to education equips women with the knowledge, skills, and confidence necessary to participate actively in the political sphere. Education can empower women to understand their rights, engage in public discourse, and navigate complex policy issues effectively. As women gain access to quality education, they are more likely to break through traditional gender roles and stereotypes, ultimately leading to increased female participation in political leadership positions, which is vital for a more equitable and representative democracy. My hypothesis is that as the access to education for women increases, their political representation in the parliament also increases. My sample consists of two datasets from the United Nations Organisation about all the member countries' seats held by women in the parliament and the gender ratio in access to education. For this project I have focused on South Asian countries namely India, Pakistan, Nepal, Bangladesh and Sri Lanka only. The goal is to determine whether there is a connection between access to education and political representation in the parliament in the context of women.  
+Is female representation in the parliament of a country a direct result of their ability to access education?
+The direct correlation between women's representation in parliamentary bodies and their access to education is a well-documented and essential aspect of gender equality. Access to education equips women with the knowledge, skills, and confidence necessary to participate actively in the political sphere. Education can empower women to understand their rights, engage in public discourse, and navigate complex policy issues effectively. As women gain access to quality education, they are more likely to break through traditional gender roles and stereotypes, ultimately leading to increased female participation in political leadership positions, which is vital for a more equitable and representative democracy. My hypothesis is that as the access to education for women increases, their political representation in the parliament also increases. My sample consists of two data-sets from the United Nations Organisation about all the member countries' seats held by women in the parliament and the gender ratio in access to education. For this project I have focused on South Asian countries namely India, Pakistan, Nepal, Bangladesh and Sri Lanka only. The goal is to determine whether there is a connection between access to education and political representation in the parliament in the context of women.  
 
-A reason why this project focuses on South Asian countries is because these are the set of countries with varying levels of all the factors that could potentially affect the connection that has been tried to achieve here. GDP of the country, equitable and easy access to the internet, increasing or decreasing crime rates, reservation quota for women in parliament or even schools, government expenditure on schools and education are all examples of factors that impact the relationship between access to education and political representation in the parliament. This is problem of causality as all these varying levels serve as confounders to the research question. Therefore, to combat this issues and also show the impact such factors have on this relationship, this project draws a comparative analysis between the relationship of the two primary factors once without the confounders and then with the confounders with the help of the concept of regression. 
+A reason why this project focuses on South Asian countries is because these are the set of countries with varying levels of all the factors that could potentially affect the connection that has been tried to achieve here. GDP of the country, equitable and easy access to the internet, increasing or decreasing crime rates, reservation quota for women in parliament or even schools, government expenditure on schools and education are all examples of factors that impact the relationship between access to education and political representation in the parliament. This is a problem of causality as all these varying levels serve as confounders to the research question. Therefore, to combat these issues and also show the impact such factors have on this relationship, this project draws a comparative analysis between the relationship of the two primary factors once without the confounders and then with the confounders with the help of the concept of regression. 
 
 
 
-##Data Section
+# Data Section
 
-#The first dataset on seats held by women in parliament is loaded below. It has further been filtered to only South Asian countries.
+The first dataset on seats held by women in parliament is loaded below. As mentioned above, it has been sourced from the United Nations Organization. It includes the percentage value of the seats held by women in parliament of different countries. It has further been filtered to only South Asian countries.
 
 Description of variables is as follows:
 
-region_country_area = country code as per the UN
-country = name of the country
-year = year when the data was recorded
-series = statement explaining the "year" variable
-last_election_date = date when the last election was held
+region_country_area = country code as per the UN,
+country = name of the country,
+year = year when the data was recorded,
+series = statement explaining the "year" variable,
+last_election_date = date when the last election was held,
 value = percentage value of the seats held by women in parliament
 
 This project only focuses on the usage of the country, year, and value variable. 
@@ -46,20 +46,19 @@ southasian_countries <- df |>
 ggplot(data = southasian_countries, mapping=aes(x=year, y=value, color = country, fill = country)) + geom_point() + geom_smooth(method = "lm", se = FALSE) + facet_wrap(~country) + labs(x = "year", y = "percentage of women in parliament", title = "Relationship between representation of women in parliament with increasing years") 
 
 ```
-##Discussion of the plot
+## Discussion of the plot
 
-This plot displays the relationship between the representation of women in parliament in percentage and time in years in 5 different South Asian countries. Through this visualization it is evident that percentage representation of women in parliament of Bangladesh, India and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that while Sri Lanka has shown the slightest increase in women representation in the parliament, Pakistan has shown a decrease in the same over the years. Also, it is imperative to note that aside from India, that has shown a consistent growth in the representation of women in parliament over the years, Bangladesh and Nepal show a rather clustered scatterplot with the increment in years.
+This plot displays the relationship between the representation of women in parliament in percentage and time in years in 5 different South Asian countries. Through this visualization it is evident that percentage representation of women in parliament of Bangladesh, India and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that while Sri Lanka has shown the slightest increase in women representation in the parliament, Pakistan has shown a decrease in the same over the years. Also, it is imperative to note that aside from India, that has shown a consistent growth in the representation of women in parliament over the years, Bangladesh and Nepal show a rather clustered scatterplot with the increment in years. The next step in this study is to determine the change in access to education levels over the same time interval in order to draw a conclusion to support my hypothesis. 
 
 
-
-#The second dataset on ratio between girls and boys in primary, secondary and upper secondary is loaded below. It has further been filtered to only South Asian countries.
+The second dataset on ratio between girls and boys in primary, secondary and upper secondary is loaded below. It includes the ratio between girls and boys in different levels of education at school that will be helpful in drawing a conclusion for my hypothesis. It has further been filtered to only South Asian countries.
 
 Description of variables is as follows:
 
-region_country_area = country code as per the UN
-country = name of the country
-year = year when the data was recorded
-series = breakdown of levels of education into primary, secondary and upper secondary
+region_country_area = country code as per the UN,
+country = name of the country,
+year = year when the data was recorded,
+series = breakdown of levels of education into primary, secondary and upper secondary,
 value = value of the ratio between girls to boys
 
 ```{r}
@@ -73,13 +72,49 @@ southasian_countries_edu <- daf |>
 ggplot(data = southasian_countries_edu, mapping=aes(x=year, y=value, color = series, fill = series)) + geom_point() + 
   geom_smooth(method = "lm", se = FALSE) + facet_wrap(~country) + theme_minimal() + theme(legend.position="bottom") +  labs(x = "year", y = "value of ratio between girls and boys", title = "Relationship between ratio of girls and boys in different levels of education with increasing years") 
 ```
+
+
 ##Discussion of this plot
 
 This plot displays the relationship between the ratio of girls and boys in different levels of education and time in years in 5 different South Asian countries. Through this visualization it is evident that ratio of girls and boys in different levels of education in India, Pakistan and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that Sri Lanka has shown the slightest increase in ratio in primary education but a sharp decrease in secondary and upper secondary levels of education. Bangladesh observes a similar trend but in reverse. There is only a slight increase in ratio of girls and boys in primary level of education but a decent increase in secondary and upper secondary levels of education. 
 
 
-##loading confounder datasets
 
+#Interpretation of the two plots together:
+
+In order to support my hypothesis, I needed a direct correlation between the two variables plotted against "year", that is, percentage value of the seats held by women in parliament and value of the ratio between girls to boys in different education levels. On comparing the two plots, it is concluded that a same trend can be observed for Bangladesh, India and Nepal. In the three countries mentioned, there is both, an increase in ratio between girls and boys in different levels of education and an increase in women in representation in the parliament. This clearly supports my hypothesis. In fact, even the trend observed for Sri Lanka supports my hypothesis to a certain extent as we see a decline in the ratio between girls and boys and a very faint change in increase in percentage of women in the parliament. However, on comparing the trend shown by Pakistan in the two plots we can see that even when there is an increase in the ratio of girls to boys in different education levels over the years, a decline can be seen in the percentage of women in the parliament. This leads one to the question of possible confounders that maybe stopping me from finding the same trend in all countries. Therefore, the next step is to counter the confounders.
+
+# Cleaning data
+```{r}
+education_graph <- southasian_countries_edu |>
+  select(country , year, series, value) |>
+  pivot_wider(names_from = series,
+        values_from = value)
+education_graph
+```
+
+## Joining the main datasets
+
+```{r}
+joined_data <- southasian_countries |>
+  left_join(education_graph , by = c("country", "year")) |>
+  rename(primary_education_ratio = "Ratio of girls to boys in primary education",
+         secondary_eductation_ratio = "Ratio of girls to boys in secondary education",
+         uppersecondary_education_ratio = "Ratio of girls to boys in upper secondary education",
+        women_seat_percent = "value") |>
+  select(country, year, women_seat_percent, primary_education_ratio, secondary_eductation_ratio, uppersecondary_education_ratio )
+joined_data
+```
+
+# Loading confounder datasets
+
+The two main confounders according to me are GDP of the country and number of people accessing the internet. 
+
+1. GDP is a measure of a country's economic output. Higher GDP is associated with better economic development that influences both the representation of women in parliament and educational opportunities for girls. In more economically developed countries, there may be greater resources and opportunities for women to participate in politics and for girls to receive education.
+
+2. Access to the internet can provide enhanced educational opportunities for both girls and boys. Additionally, the internet is a powerful tool for raising awareness and promoting empowerment. People who use the internet are conventionally more liberal and therefore may send their girl child to study in school. They are also more likely to promote and support women participation in politics and parliament. On the flip side, if there is a digital gender divide (unequal access to the internet based on gender), it might exacerbate existing gender disparities. This, in turn, could affect the representation of women in parliament and the gender ratio in high schools.
+
+##Loading Confounder data sets
 ```{r}
 GDP <- read_csv("GDP per capita.csv", skip = 1) |>
  janitor::clean_names() |> 
@@ -99,32 +134,23 @@ internet_usage <- read.csv("Internet usage.csv", skip = 1)|>
   internet_usage
   
 ```
+Description of variables of the confounder datasets: 
 
+Dataset 1 - GDP 
 
+country = name of the country,
+gdp_per_capita = GDP per capita of the country,
+year = year in which the GDP was calculated
 
-##cleaning data
-```{r}
-education_graph <- southasian_countries_edu |>
-  select(country , year, series, value) |>
-  pivot_wider(names_from = series,
-        values_from = value)
-education_graph
-```
+Dataset 2 - internet usage
 
-##joining the main datasets without confounders
+country = name of the country,
+percentage_individuals_using_internet = percentage of individuals in the entire population of the country using the internet,
+year = year in which the data was observed
 
-```{r}
-joined_data <- southasian_countries |>
-  left_join(education_graph , by = c("country", "year")) |>
-  rename(primary_education_ratio = "Ratio of girls to boys in primary education",
-         secondary_eductation_ratio = "Ratio of girls to boys in secondary education",
-         uppersecondary_education_ratio = "Ratio of girls to boys in upper secondary education",
-        women_seat_percent = "value") |>
-  select(country, year, women_seat_percent, primary_education_ratio, secondary_eductation_ratio, uppersecondary_education_ratio )
-joined_data
-```
+#Result
 
-##running regression
+### Running regression
 ```{r}
 regression <- lm(women_seat_percent ~ primary_education_ratio , data = joined_data) 
 
@@ -134,7 +160,7 @@ regression3 <- lm(women_seat_percent ~ primary_education_ratio + secondary_educt
 
 ```
 
-##tidying regression
+### Tidying regression
 ```{r}
 library(broom)
 
