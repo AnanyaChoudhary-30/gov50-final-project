@@ -1,7 +1,7 @@
 ---
 title: "Gov 50 Final Project"
 author: "Ananya Choudhary"
-description: "My final project"
+description: "Determining the relationship between the percentage of seats held by women in parliament and ratio between girls to boys in different education levels."
 output:
   distill::distill_article:
     self_contained: false
@@ -46,7 +46,7 @@ southasian_countries <- df |>
 ggplot(data = southasian_countries, mapping=aes(x=year, y=value, color = country, fill = country)) + geom_point() + geom_smooth(method = "lm", se = FALSE) + facet_wrap(~country) + labs(x = "year", y = "percentage of women in parliament", title = "Relationship between representation of women in parliament with increasing years") 
 
 ```
-## Discussion of the plot
+### Discussion of the plot
 
 This plot displays the relationship between the representation of women in parliament in percentage and time in years in 5 different South Asian countries. Through this visualization it is evident that percentage representation of women in parliament of Bangladesh, India and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that while Sri Lanka has shown the slightest increase in women representation in the parliament, Pakistan has shown a decrease in the same over the years. Also, it is imperative to note that aside from India, that has shown a consistent growth in the representation of women in parliament over the years, Bangladesh and Nepal show a rather clustered scatterplot with the increment in years. The next step in this study is to determine the change in access to education levels over the same time interval in order to draw a conclusion to support my hypothesis. 
 
@@ -74,13 +74,13 @@ ggplot(data = southasian_countries_edu, mapping=aes(x=year, y=value, color = ser
 ```
 
 
-##Discussion of this plot
+### Discussion of this plot
 
 This plot displays the relationship between the ratio of girls and boys in different levels of education and time in years in 5 different South Asian countries. Through this visualization it is evident that ratio of girls and boys in different levels of education in India, Pakistan and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that Sri Lanka has shown the slightest increase in ratio in primary education but a sharp decrease in secondary and upper secondary levels of education. Bangladesh observes a similar trend but in reverse. There is only a slight increase in ratio of girls and boys in primary level of education but a decent increase in secondary and upper secondary levels of education. 
 
 
 
-#Interpretation of the two plots together:
+### Interpretation of the two plots together:
 
 In order to support my hypothesis, I needed a direct correlation between the two variables plotted against "year", that is, percentage value of the seats held by women in parliament and value of the ratio between girls to boys in different education levels. On comparing the two plots, it is concluded that a same trend can be observed for Bangladesh, India and Nepal. In the three countries mentioned, there is both, an increase in ratio between girls and boys in different levels of education and an increase in women in representation in the parliament. This clearly supports my hypothesis. In fact, even the trend observed for Sri Lanka supports my hypothesis to a certain extent as we see a decline in the ratio between girls and boys and a very faint change in increase in percentage of women in the parliament. However, on comparing the trend shown by Pakistan in the two plots we can see that even when there is an increase in the ratio of girls to boys in different education levels over the years, a decline can be seen in the percentage of women in the parliament. This leads one to the question of possible confounders that maybe stopping me from finding the same trend in all countries. Therefore, the next step is to counter the confounders.
 
@@ -93,16 +93,16 @@ education_graph <- southasian_countries_edu |>
 education_graph
 ```
 
-## Joining the main datasets
+### Joining the main datasets
 
 ```{r}
 joined_data <- southasian_countries |>
   left_join(education_graph , by = c("country", "year")) |>
   rename(primary_education_ratio = "Ratio of girls to boys in primary education",
-         secondary_eductation_ratio = "Ratio of girls to boys in secondary education",
+         secondary_education_ratio = "Ratio of girls to boys in secondary education",
          uppersecondary_education_ratio = "Ratio of girls to boys in upper secondary education",
         women_seat_percent = "value") |>
-  select(country, year, women_seat_percent, primary_education_ratio, secondary_eductation_ratio, uppersecondary_education_ratio )
+  select(country, year, women_seat_percent, primary_education_ratio, secondary_education_ratio, uppersecondary_education_ratio )
 joined_data
 ```
 
@@ -114,7 +114,7 @@ The two main confounders according to me are GDP of the country and number of pe
 
 2. Access to the internet can provide enhanced educational opportunities for both girls and boys. Additionally, the internet is a powerful tool for raising awareness and promoting empowerment. People who use the internet are conventionally more liberal and therefore may send their girl child to study in school. They are also more likely to promote and support women participation in politics and parliament. On the flip side, if there is a digital gender divide (unequal access to the internet based on gender), it might exacerbate existing gender disparities. This, in turn, could affect the representation of women in parliament and the gender ratio in high schools.
 
-##Loading Confounder data sets
+
 ```{r}
 GDP <- read_csv("GDP per capita.csv", skip = 1) |>
  janitor::clean_names() |> 
@@ -148,52 +148,46 @@ country = name of the country,
 percentage_individuals_using_internet = percentage of individuals in the entire population of the country using the internet,
 year = year in which the data was observed
 
-#Result
+# Result 
 
-### Running regression
+### Running regression using the main variables first where the independent variables are different education levels and the dependent variable is the percentage of women in parliament
 ```{r}
-regression <- lm(women_seat_percent ~ primary_education_ratio , data = joined_data) 
+regression1 <- lm(women_seat_percent ~ primary_education_ratio , data = joined_data) 
 
-regression2 <- lm(women_seat_percent ~ primary_education_ratio + secondary_eductation_ratio , data = joined_data) 
+regression2 <- lm(women_seat_percent ~ primary_education_ratio + secondary_education_ratio , data = joined_data) 
 
-regression3 <- lm(women_seat_percent ~ primary_education_ratio + secondary_eductation_ratio + uppersecondary_education_ratio , data = joined_data) 
+regression3 <- lm(women_seat_percent ~ primary_education_ratio + secondary_education_ratio + uppersecondary_education_ratio , data = joined_data) 
 
 ```
 
-### Tidying regression
-```{r}
-library(broom)
 
-tidy(regression) |>
-  knitr::kable()
-```
+### Presenting regression
 
-##presenting regression
 ```{r}
 library(modelsummary)
 
-var_labels <- c(
-  "primary_education_ratio" = "new name"
-) ##u can change names here
+var_labels <- c("(Intercept)" = "Intercept",
+  "primary_education_ratio" = "Ratio between girls to boys in primary level",
+  "secondary_education_ratio" = "Ratio between girls to boys in secondary level",
+  "uppersecondary_education_ratio" = "Ratio between girls to boys in upper secondary level")
 
-
-modelsummary(list(regression, regression2, regression3),
+modelsummary(list(regression1, regression2, regression3), statistic = "p.value",
               gof_map = c("nobs", "r.squared", "adj.r.squared"),
-             coef_map = var_labels) ##this will run and pass the new name and make table more organized
+             coef_map = var_labels) 
 ```
-##Result section 1
+## Result section 1
+
+As seen in the table above, the intercept when only primary education level is taken into consideration is 23.925. This means that the estimated percentage of seats held by women in parliament when the ratio between girls to boys in primary education is zero. However, the interpretation of all the three intercepts is not meaningful since the ratio between girls to boys cannot be zero in my case. Therefore, the main analysis can be done with the help of coefficients associated with the education level ratios. It is striking to note however that all these coefficients are negative, thereby rejecting my hypothesis. In the first case, that is the coefficient of ratio between girls and boys, a one-unit increase in the ratio between girls to boys in primary education is associated with a decrease of 7.843 percentage points in the percentage of seats held by women in parliament, holding other variables constant. After including secondary education level, a one-unit increase in the ratio between girls to boys in primary education is associated with a decrease of 12.041 percentage points in the percentage of seats held by women holding all other variables constant. Finally, after including upper secondary education level, a one-unit increase in the ratio between girls to boys in primary education is associated with a decrease of 1.730 percentage points in the percentage of seats held by women holding the other two levels constant. It is also observed that on adding the secondary and upper secondary levels, the coefficient of the primary level education becomes positive thereby showing a positive correlation between increasing percentage of women in parliament and ratio between girls to boys at primary levels holding the othe two levels constant. This can arguably imply that minimum educational qualification increases the percentage of representation of women in parliament. Because the p-value associated with each of these is greater than the standard 0.05 alpha, therefore the coefficients do not hold statistical significance.
 
 
-
-
-##joining confounder 1
+### Joining confounder 1 - GDP
 
 ```{r}
 confounders <- joined_data |>
   left_join(GDP, by = c("country", "year"))
 confounders
 ```
-##joining confounder 2
+### Joining confounder 2 - Internet Usage
 
 ```{r}
 possible_confounders <- confounders |>
@@ -201,25 +195,38 @@ possible_confounders <- confounders |>
 possible_confounders
 ```
 
-##running regression with confounders
+### Running regression with confounders
 ```{r}
-regression4 <- lm(women_seat_percent ~ primary_education_ratio + secondary_eductation_ratio + uppersecondary_education_ratio + gdp_per_capita + percentage_individuals_using_internet, data = possible_confounders)
-summary(regression4)
+regression4 <- lm(women_seat_percent ~ primary_education_ratio + secondary_education_ratio + uppersecondary_education_ratio + gdp_per_capita + percentage_individuals_using_internet, data = possible_confounders)
 ```
 
-##presenting final regression
+### Presenting final regression with confounders
 ```{r}
 modelsummary(regression4)
+
+var_labels2 <- c("(Intercept)" = "Intercept",
+  "primary_education_ratio" = "Ratio between girls to boys in primary level",
+  "secondary_education_ratio" = "Ratio between girls to boys in secondary level",
+  "uppersecondary_education_ratio" = "Ratio between girls to boys in upper secondary level",
+  "gdp_per_capita" = "GDP per capita",
+  "percentage_individuals_using_internet" = "Percentage of individuals using the internet")
+
+modelsummary(regression4, statistic = "p.value",
+              gof_map = c("nobs", "r.squared", "adj.r.squared"),
+             coef_map = var_labels2) 
 ```
-##Result section 2
+## Result section 2
+
+On controlling for confounders like the GDP and internet usage, one can observe that for every unit increase in the GDP of a country, a decrease by 0.007 percentage can be observed in the percentage of seats held by women in parliament holding all other factors constant. Secondly, a positive relation between percentage of seats held by women in parliament and internet usage by citizens is seen holding all other factors constant. For every one percentage increase in the percentage of people using the internet, the percentage of seats held by women in parliament increases by 0.183 percentage points. Additionally, a change in trend as compared to the first regression can be seen with respect to the ratio between girls to boys in upper secondary level and its relationship with percentage of seats held by women in parliament after holding for the confounders. For every unit increase in the ratio between girls to boys in the parliament, a percentage point increase by 91.314 is seen in the percentage of seats held by women in parliament. However, all these coefficients are not statistically significant because the p value is much greater than the standard alpha value.
 
 
 
 
+# Conclusion
 
+If my hypothesis was supported by the data available, it would have been interesting to find whether more female representation in the parliament meant more policies for girl child education, therefore the positive relationship between the two. On the other hand, a different perspective of viewing the relationship could have been that more educated girls meant more girls participating in politics and breaking gender stereotypes.
 
-##Conclusion
+However, after running regressions, it is clear that there is a negative relationship between the percentage of seats held by women in parliament and ratio between girls to boys in different education levels. This relationship does not support my hypothesis.After holding for confounders though, my hypothesis is supported at the highermost education level. However, it is imperative to note that my regressions cannot establish any casual effects as the coefficients I obtained do not hold any statistical significance. This leads me to the question whether the relationship I observed in my first regression holds true or not because the relationship determined between the two could be due to random chance.
 
-Confounders = reservation quota, terrorism, public expenditur on education, internet usage, GDP per capita, general liberal mindset has imcreased
+It is worth mentioning the limitations I faced in this project. First of all, there was some missing data in the countries I studied. Better studies with a more accurate framework should be done in order to tackle this. Secondly, the problem of confounders is huge as studying this relationship is impossible without looking into confounders like reservation quota in the parliament and schools for females, increasing terrorism in south asian countries, public and government expenditure on education, change in the general liberal mindset of people in society and many more. If I had more resources like time I would have included all these confounders by digging deep into the data available and maybe then I would have been able to support my hypothesis. 
 
-question: should i remove the NA data?, SE kam hoga toh better haina?
