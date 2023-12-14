@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-1-1.png","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","SYB65_317_202209_Seats held by women in Parliament.csv","SYB65_319_202209_Ratio of girls to boys in education.csv"]}
+  {"type":"character","attributes":{},"value":["GDP per capita.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-1-1.png","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/kePrint-0.0.1/kePrint.js","index_files/lightable-0.0.1/lightable.css","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","Internet usage.csv","SYB65_317_202209_Seats held by women in Parliament.csv","SYB65_319_202209_Ratio of girls to boys in education.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1473,6 +1473,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="index_files/header-attrs-2.24/header-attrs.js"></script>
+  <script src="index_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="index_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="index_files/popper-2.6.0/popper.min.js"></script>
   <link href="index_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1517,9 +1519,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="project-thought">Project thought</h2>
+<h2 id="introduction-of-the-project">Introduction of the project</h2>
 <p>Is female representation in the parliament of a country a direct result of their access to education?
-The direct correlation between women’s representation in parliamentary bodies and their access to education is a well-documented and essential aspect of gender equality. Access to education equips women with the knowledge, skills, and confidence necessary to participate actively in the political sphere. Education can empower women to understand their rights, engage in public discourse, and navigate complex policy issues effectively. By investing in women’s education, nations are not only fostering greater political inclusivity but also reaping the benefits of a more diverse and informed decision-making process. As women gain access to quality education, they are more likely to break through traditional gender roles and stereotypes, ultimately leading to increased female participation in political leadership positions, which is vital for a more equitable and representative democracy. My hypothesis is that as the access to education for women increases, their political representation also increases. My sample consists of two dataseets from the UN about all the member countries’ seats held by women in the parliament and the gender ratio in access to education. For the project I will be focusing on South Asian countries. If I find that as the education level over the years of women in South Asian country increases alongside their political representation then it will support my hypothesis.</p>
+The direct correlation between women’s representation in parliamentary bodies and their access to education is a well-documented and essential aspect of gender equality. Access to education equips women with the knowledge, skills, and confidence necessary to participate actively in the political sphere. Education can empower women to understand their rights, engage in public discourse, and navigate complex policy issues effectively. As women gain access to quality education, they are more likely to break through traditional gender roles and stereotypes, ultimately leading to increased female participation in political leadership positions, which is vital for a more equitable and representative democracy. My hypothesis is that as the access to education for women increases, their political representation in the parliament also increases. My sample consists of two datasets from the United Nations Organisation about all the member countries’ seats held by women in the parliament and the gender ratio in access to education. For this project I have focused on South Asian countries namely India, Pakistan, Nepal, Bangladesh and Sri Lanka only. The goal is to determine whether there is a connection between access to education and political representation in the parliament in the context of women.</p>
+<p>A reason why this project focuses on South Asian countries is because these are the set of countries with varying levels of all the factors that could potentially affect the connection that has been tried to achieve here. GDP of the country, equitable and easy access to the internet, increasing or decreasing crime rates, reservation quota for women in parliament or even schools, government expenditure on schools and education are all examples of factors that impact the relationship between access to education and political representation in the parliament. This is problem of causality as all these varying levels serve as confounders to the research question. Therefore, to combat this issues and also show the impact such factors have on this relationship, this project draws a comparative analysis between the relationship of the two primary factors once without the confounders and then with the confounders with the help of the concept of regression.</p>
+<p>##Data Section</p>
+<p>#The first dataset on seats held by women in parliament is loaded below. It has further been filtered to only South Asian countries.</p>
+<p>Description of variables is as follows:</p>
+<p>region_country_area = country code as per the UN
+country = name of the country
+year = year when the data was recorded
+series = statement explaining the “year” variable
+last_election_date = date when the last election was held
+value = percentage value of the seats held by women in parliament</p>
+<p>This project only focuses on the usage of the country, year, and value variable.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
@@ -1528,29 +1541,572 @@ The direct correlation between women’s representation in parliamentary bodies 
 <span>  <span class='fu'>janitor</span><span class='fu'>::</span><span class='fu'><a href='https://sfirke.github.io/janitor/reference/clean_names.html'>clean_names</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span> </span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>country <span class='op'>=</span> <span class='va'>x2</span><span class='op'>)</span> </span>
 <span></span>
-<span><span class='va'>only_countries</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>==</span> <span class='st'>"India"</span><span class='op'>|</span> <span class='va'>country</span> <span class='op'>==</span><span class='st'>"Pakistan"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"China"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Bangladesh"</span><span class='op'>|</span><span class='va'>country</span><span class='op'>==</span><span class='st'>"Nepal"</span><span class='op'>)</span></span>
+<span><span class='va'>southasian_countries</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>==</span> <span class='st'>"India"</span><span class='op'>|</span> <span class='va'>country</span> <span class='op'>==</span><span class='st'>"Pakistan"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Sri Lanka"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Bangladesh"</span><span class='op'>|</span><span class='va'>country</span><span class='op'>==</span><span class='st'>"Nepal"</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>only_countries</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>value</span>, color <span class='op'>=</span> <span class='va'>country</span>, fill <span class='op'>=</span> <span class='va'>country</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>country</span><span class='op'>)</span> </span></code></pre>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>southasian_countries</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>value</span>, color <span class='op'>=</span> <span class='va'>country</span>, fill <span class='op'>=</span> <span class='va'>country</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>country</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"year"</span>, y <span class='op'>=</span> <span class='st'>"percentage of women in parliament"</span>, title <span class='op'>=</span> <span class='st'>"Relationship between representation of women in parliament with increasing years"</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
 </div>
-##milestone 4 (second visualization)
+<p>##Discussion of the plot</p>
+<p>This plot displays the relationship between the representation of women in parliament in percentage and time in years in 5 different South Asian countries. Through this visualization it is evident that percentage representation of women in parliament of Bangladesh, India and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that while Sri Lanka has shown the slightest increase in women representation in the parliament, Pakistan has shown a decrease in the same over the years. Also, it is imperative to note that aside from India, that has shown a consistent growth in the representation of women in parliament over the years, Bangladesh and Nepal show a rather clustered scatterplot with the increment in years.</p>
+<p>#The second dataset on ratio between girls and boys in primary, secondary and upper secondary is loaded below. It has further been filtered to only South Asian countries.</p>
+<p>Description of variables is as follows:</p>
+<p>region_country_area = country code as per the UN
+country = name of the country
+year = year when the data was recorded
+series = breakdown of levels of education into primary, secondary and upper secondary
+value = value of the ratio between girls to boys</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>daf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"SYB65_319_202209_Ratio of girls to boys in education.csv"</span>, skip <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>daf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"SYB65_319_202209_Ratio of girls to boys in education.csv"</span>, skip <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span> <span class='fu'>janitor</span><span class='fu'>::</span><span class='fu'><a href='https://sfirke.github.io/janitor/reference/clean_names.html'>clean_names</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span> </span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>country <span class='op'>=</span> <span class='va'>x2</span><span class='op'>)</span> </span>
 <span></span>
-<span><span class='va'>only_countries_edu</span> <span class='op'>&lt;-</span> <span class='va'>daf</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>==</span> <span class='st'>"India"</span><span class='op'>|</span> <span class='va'>country</span> <span class='op'>==</span><span class='st'>"Pakistan"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"China"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Bangladesh"</span><span class='op'>|</span><span class='va'>country</span><span class='op'>==</span><span class='st'>"Nepal"</span><span class='op'>)</span></span>
+<span><span class='va'>southasian_countries_edu</span> <span class='op'>&lt;-</span> <span class='va'>daf</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>==</span> <span class='st'>"India"</span><span class='op'>|</span> <span class='va'>country</span> <span class='op'>==</span><span class='st'>"Pakistan"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Sri Lanka"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Bangladesh"</span><span class='op'>|</span><span class='va'>country</span><span class='op'>==</span><span class='st'>"Nepal"</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>only_countries_edu</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>value</span>, color <span class='op'>=</span> <span class='va'>series</span>, fill <span class='op'>=</span> <span class='va'>series</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>country</span><span class='op'>)</span> </span></code></pre>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>southasian_countries_edu</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>value</span>, color <span class='op'>=</span> <span class='va'>series</span>, fill <span class='op'>=</span> <span class='va'>series</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>country</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position<span class='op'>=</span><span class='st'>"bottom"</span><span class='op'>)</span> <span class='op'>+</span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"year"</span>, y <span class='op'>=</span> <span class='st'>"value of ratio between girls and boys"</span>, title <span class='op'>=</span> <span class='st'>"Relationship between ratio of girls and boys in different levels of education with increasing years"</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>##Discussion of this plot</p>
+<p>This plot displays the relationship between the ratio of girls and boys in different levels of education and time in years in 5 different South Asian countries. Through this visualization it is evident that ratio of girls and boys in different levels of education in India, Pakistan and Nepal has increased as years have passed. However, Pakistan and Sri Lanka do not show the same relationship. It is striking to note that Sri Lanka has shown the slightest increase in ratio in primary education but a sharp decrease in secondary and upper secondary levels of education. Bangladesh observes a similar trend but in reverse. There is only a slight increase in ratio of girls and boys in primary level of education but a decent increase in secondary and upper secondary levels of education.</p>
+<p>##loading confounder datasets</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>GDP</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"GDP per capita.csv"</span>, skip <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span> <span class='fu'>janitor</span><span class='fu'>::</span><span class='fu'><a href='https://sfirke.github.io/janitor/reference/clean_names.html'>clean_names</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>country <span class='op'>=</span> <span class='va'>x2</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>==</span> <span class='st'>"India"</span><span class='op'>|</span> <span class='va'>country</span> <span class='op'>==</span><span class='st'>"Pakistan"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Sri Lanka"</span><span class='op'>|</span><span class='va'>country</span> <span class='op'>==</span><span class='st'>"Bangladesh"</span><span class='op'>|</span><span class='va'>country</span><span class='op'>==</span><span class='st'>"Nepal"</span>,</span>
+<span>          <span class='va'>series</span> <span class='op'>==</span> <span class='st'>"GDP per capita (US dollars)"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>gdp_per_capita <span class='op'>=</span> <span class='st'>"value"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>country</span>, <span class='va'>gdp_per_capita</span>, <span class='va'>year</span> <span class='op'>)</span></span>
+<span><span class='va'>GDP</span></span></code></pre>
+</div>
+<pre><code># A tibble: 35 × 3
+   country    gdp_per_capita  year
+   &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;
+ 1 Bangladesh            321  1995
+ 2 Bangladesh            409  2005
+ 3 Bangladesh            829  2010
+ 4 Bangladesh           1450  2015
+ 5 Bangladesh           2111  2019
+ 6 Bangladesh           2231  2020
+ 7 Bangladesh           2450  2021
+ 8 India                 386  1995
+ 9 India                 713  2005
+10 India                1346  2010
+# ℹ 25 more rows</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>internet_usage</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Internet usage.csv"</span>, skip <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>X</span> <span class='op'>==</span> <span class='st'>"India"</span><span class='op'>|</span> <span class='va'>X</span> <span class='op'>==</span><span class='st'>"Pakistan"</span><span class='op'>|</span><span class='va'>X</span> <span class='op'>==</span><span class='st'>"Sri Lanka"</span><span class='op'>|</span><span class='va'>X</span> <span class='op'>==</span><span class='st'>"Bangladesh"</span><span class='op'>|</span><span class='va'>X</span><span class='op'>==</span><span class='st'>"Nepal"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>  percentage_individuals_using_internet <span class='op'>=</span> <span class='st'>"Value"</span>,</span>
+<span>          country <span class='op'>=</span> <span class='st'>"X"</span>,</span>
+<span>          year <span class='op'>=</span> <span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>country</span>, <span class='va'>percentage_individuals_using_internet</span>, <span class='va'>year</span> <span class='op'>)</span></span>
+<span>  <span class='va'>internet_usage</span></span></code></pre>
+</div>
+<pre><code>      country percentage_individuals_using_internet year
+1  Bangladesh                                   0.1 2000
+2  Bangladesh                                   0.2 2005
+3  Bangladesh                                   3.7 2010
+4  Bangladesh                                  12.9 2015
+5  Bangladesh                                  27.8 2019
+6  Bangladesh                                  32.9 2020
+7  Bangladesh                                  38.9 2021
+8       India                                   0.5 2000
+9       India                                   2.4 2005
+10      India                                   7.5 2010
+11      India                                  14.9 2015
+12      India                                  29.5 2019
+13      India                                  43.4 2020
+14      India                                  46.3 2021
+15      Nepal                                   0.2 2000
+16      Nepal                                   0.8 2005
+17      Nepal                                   7.9 2010
+18      Nepal                                  17.6 2015
+19      Nepal                                  34.8 2019
+20      Nepal                                  45.8 2020
+21      Nepal                                  51.6 2021
+22   Pakistan                                   6.3 2005
+23   Pakistan                                   8.0 2010
+24   Pakistan                                  11.0 2015
+25   Pakistan                                  17.1 2019
+26   Pakistan                                  18.9 2020
+27   Pakistan                                  21.0 2021
+28  Sri Lanka                                   0.6 2000
+29  Sri Lanka                                   1.8 2005
+30  Sri Lanka                                  15.3 2015
+31  Sri Lanka                                  50.7 2019
+32  Sri Lanka                                  59.2 2020
+33  Sri Lanka                                  66.7 2021</code></pre>
+</div>
+##cleaning data
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>education_graph</span> <span class='op'>&lt;-</span> <span class='va'>southasian_countries_edu</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>country</span> , <span class='va'>year</span>, <span class='va'>series</span>, <span class='va'>value</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>series</span>,</span>
+<span>        values_from <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span></span>
+<span><span class='va'>education_graph</span></span></code></pre>
+</div>
+<pre><code># A tibble: 30 × 5
+   country     year Ratio of girls to boys in…¹ Ratio of girls to bo…²
+   &lt;chr&gt;      &lt;dbl&gt;                       &lt;dbl&gt;                  &lt;dbl&gt;
+ 1 Bangladesh  2005                        1.05                   1.07
+ 2 Bangladesh  2010                        1.06                   1.12
+ 3 Bangladesh  2018                        1.07                   1.16
+ 4 Bangladesh  2020                        1.09                   1.21
+ 5 Bangladesh  2015                       NA                      1.13
+ 6 Bangladesh  2019                       NA                      1.17
+ 7 India       1995                        0.83                   0.65
+ 8 India       2010                        1.03                   0.94
+ 9 India       2015                        1.12                   1.02
+10 India       2019                        1.02                   1.02
+# ℹ 20 more rows
+# ℹ abbreviated names:
+#   ¹​`Ratio of girls to boys in primary education`,
+#   ²​`Ratio of girls to boys in secondary education`
+# ℹ 1 more variable:
+#   `Ratio of girls to boys in upper secondary education` &lt;dbl&gt;</code></pre>
+</div>
+<p>##joining the main datasets without confounders</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>joined_data</span> <span class='op'>&lt;-</span> <span class='va'>southasian_countries</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>education_graph</span> , by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"country"</span>, <span class='st'>"year"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>primary_education_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in primary education"</span>,</span>
+<span>         secondary_eductation_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in secondary education"</span>,</span>
+<span>         uppersecondary_education_ratio <span class='op'>=</span> <span class='st'>"Ratio of girls to boys in upper secondary education"</span>,</span>
+<span>        women_seat_percent <span class='op'>=</span> <span class='st'>"value"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>country</span>, <span class='va'>year</span>, <span class='va'>women_seat_percent</span>, <span class='va'>primary_education_ratio</span>, <span class='va'>secondary_eductation_ratio</span>, <span class='va'>uppersecondary_education_ratio</span> <span class='op'>)</span></span>
+<span><span class='va'>joined_data</span></span></code></pre>
+</div>
+<pre><code># A tibble: 43 × 6
+   country     year women_seat_percent primary_education_ratio
+   &lt;chr&gt;      &lt;dbl&gt;              &lt;dbl&gt;                   &lt;dbl&gt;
+ 1 Bangladesh  2000                9.1                   NA   
+ 2 Bangladesh  2005                2                      1.05
+ 3 Bangladesh  2010               18.6                    1.06
+ 4 Bangladesh  2015               20                     NA   
+ 5 Bangladesh  2018               20.3                    1.07
+ 6 Bangladesh  2019               20.7                   NA   
+ 7 Bangladesh  2020               20.9                    1.09
+ 8 Bangladesh  2021               20.9                   NA   
+ 9 Bangladesh  2022               20.9                   NA   
+10 India       2000                9                     NA   
+# ℹ 33 more rows
+# ℹ 2 more variables: secondary_eductation_ratio &lt;dbl&gt;,
+#   uppersecondary_education_ratio &lt;dbl&gt;</code></pre>
+</div>
+##running regression
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>women_seat_percent</span> <span class='op'>~</span> <span class='va'>primary_education_ratio</span> , data <span class='op'>=</span> <span class='va'>joined_data</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>regression2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>women_seat_percent</span> <span class='op'>~</span> <span class='va'>primary_education_ratio</span> <span class='op'>+</span> <span class='va'>secondary_eductation_ratio</span> , data <span class='op'>=</span> <span class='va'>joined_data</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>regression3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>women_seat_percent</span> <span class='op'>~</span> <span class='va'>primary_education_ratio</span> <span class='op'>+</span> <span class='va'>secondary_eductation_ratio</span> <span class='op'>+</span> <span class='va'>uppersecondary_education_ratio</span> , data <span class='op'>=</span> <span class='va'>joined_data</span><span class='op'>)</span> </span></code></pre>
+</div>
+</div>
+##tidying regression
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://broom.tidymodels.org/'>broom</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>regression</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">23.92524</td>
+<td style="text-align: right;">22.36966</td>
+<td style="text-align: right;">1.0695397</td>
+<td style="text-align: right;">0.2982266</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">primary_education_ratio</td>
+<td style="text-align: right;">-7.84345</td>
+<td style="text-align: right;">22.53031</td>
+<td style="text-align: right;">-0.3481289</td>
+<td style="text-align: right;">0.7315708</td>
+</tr>
+</tbody>
+</table>
+</div>
+##presenting regression
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://modelsummary.com'>modelsummary</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>var_labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>  <span class='st'>"primary_education_ratio"</span> <span class='op'>=</span> <span class='st'>"new name"</span></span>
+<span><span class='op'>)</span> <span class='co'>##u can change names here</span></span>
+<span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>regression</span>, <span class='va'>regression2</span>, <span class='va'>regression3</span><span class='op'>)</span>,</span>
+<span>              gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
+<span>             coef_map <span class='op'>=</span> <span class='va'>var_labels</span><span class='op'>)</span> <span class='co'>##this will run and pass the new name and make table more organized</span></span></code></pre>
+</div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+ (1)
+</th>
+<th style="text-align:center;">
+  (2)
+</th>
+<th style="text-align:center;">
+  (3)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+new name
+</td>
+<td style="text-align:center;">
+−7.843
+</td>
+<td style="text-align:center;">
+9.358
+</td>
+<td style="text-align:center;">
+9.067
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1.5px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+(22.530)
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+(49.638)
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+(52.078)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.006
+</td>
+<td style="text-align:center;">
+0.010
+</td>
+<td style="text-align:center;">
+0.010
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+−0.046
+</td>
+<td style="text-align:center;">
+−0.132
+</td>
+<td style="text-align:center;">
+−0.219
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>##Result section 1</p>
+<p>##joining confounder 1</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>confounders</span> <span class='op'>&lt;-</span> <span class='va'>joined_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>GDP</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"country"</span>, <span class='st'>"year"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>confounders</span></span></code></pre>
+</div>
+<pre><code># A tibble: 43 × 7
+   country     year women_seat_percent primary_education_ratio
+   &lt;chr&gt;      &lt;dbl&gt;              &lt;dbl&gt;                   &lt;dbl&gt;
+ 1 Bangladesh  2000                9.1                   NA   
+ 2 Bangladesh  2005                2                      1.05
+ 3 Bangladesh  2010               18.6                    1.06
+ 4 Bangladesh  2015               20                     NA   
+ 5 Bangladesh  2018               20.3                    1.07
+ 6 Bangladesh  2019               20.7                   NA   
+ 7 Bangladesh  2020               20.9                    1.09
+ 8 Bangladesh  2021               20.9                   NA   
+ 9 Bangladesh  2022               20.9                   NA   
+10 India       2000                9                     NA   
+# ℹ 33 more rows
+# ℹ 3 more variables: secondary_eductation_ratio &lt;dbl&gt;,
+#   uppersecondary_education_ratio &lt;dbl&gt;, gdp_per_capita &lt;dbl&gt;</code></pre>
+</div>
+<p>##joining confounder 2</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>possible_confounders</span> <span class='op'>&lt;-</span> <span class='va'>confounders</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>internet_usage</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"country"</span>, <span class='st'>"year"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>possible_confounders</span></span></code></pre>
+</div>
+<pre><code># A tibble: 43 × 8
+   country     year women_seat_percent primary_education_ratio
+   &lt;chr&gt;      &lt;dbl&gt;              &lt;dbl&gt;                   &lt;dbl&gt;
+ 1 Bangladesh  2000                9.1                   NA   
+ 2 Bangladesh  2005                2                      1.05
+ 3 Bangladesh  2010               18.6                    1.06
+ 4 Bangladesh  2015               20                     NA   
+ 5 Bangladesh  2018               20.3                    1.07
+ 6 Bangladesh  2019               20.7                   NA   
+ 7 Bangladesh  2020               20.9                    1.09
+ 8 Bangladesh  2021               20.9                   NA   
+ 9 Bangladesh  2022               20.9                   NA   
+10 India       2000                9                     NA   
+# ℹ 33 more rows
+# ℹ 4 more variables: secondary_eductation_ratio &lt;dbl&gt;,
+#   uppersecondary_education_ratio &lt;dbl&gt;, gdp_per_capita &lt;dbl&gt;,
+#   percentage_individuals_using_internet &lt;dbl&gt;</code></pre>
+</div>
+##running regression with confounders
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>regression4</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>women_seat_percent</span> <span class='op'>~</span> <span class='va'>primary_education_ratio</span> <span class='op'>+</span> <span class='va'>secondary_eductation_ratio</span> <span class='op'>+</span> <span class='va'>uppersecondary_education_ratio</span> <span class='op'>+</span> <span class='va'>gdp_per_capita</span> <span class='op'>+</span> <span class='va'>percentage_individuals_using_internet</span>, data <span class='op'>=</span> <span class='va'>possible_confounders</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>regression4</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = women_seat_percent ~ primary_education_ratio + secondary_eductation_ratio + 
+    uppersecondary_education_ratio + gdp_per_capita + percentage_individuals_using_internet, 
+    data = possible_confounders)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-16.188  -4.389  -1.324   5.593  11.643 
+
+Coefficients:
+                                        Estimate Std. Error t value
+(Intercept)                            25.802196  34.109363   0.756
+primary_education_ratio               -17.993671  62.189029  -0.289
+secondary_eductation_ratio            -69.512783  68.998035  -1.007
+uppersecondary_education_ratio         91.314028  85.761538   1.065
+gdp_per_capita                         -0.007220   0.008456  -0.854
+percentage_individuals_using_internet   0.182572   0.457361   0.399
+                                      Pr(&gt;|t|)
+(Intercept)                              0.474
+primary_education_ratio                  0.781
+secondary_eductation_ratio               0.347
+uppersecondary_education_ratio           0.322
+gdp_per_capita                           0.421
+percentage_individuals_using_internet    0.702
+
+Residual standard error: 9.392 on 7 degrees of freedom
+  (30 observations deleted due to missingness)
+Multiple R-squared:  0.373, Adjusted R-squared:  -0.07494 
+F-statistic: 0.8327 on 5 and 7 DF,  p-value: 0.5651</code></pre>
+</div>
+##presenting final regression
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='va'>regression4</span><span class='op'>)</span></span></code></pre>
+</div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+ (1)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+25.802
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(34.109)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+primary_education_ratio
+</td>
+<td style="text-align:center;">
+−17.994
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(62.189)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+secondary_eductation_ratio
+</td>
+<td style="text-align:center;">
+−69.513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(68.998)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uppersecondary_education_ratio
+</td>
+<td style="text-align:center;">
+91.314
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(85.762)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gdp_per_capita
+</td>
+<td style="text-align:center;">
+−0.007
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.008)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+percentage_individuals_using_internet
+</td>
+<td style="text-align:center;">
+0.183
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1.5px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1.5px">
+(0.457)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.373
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+−0.075
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AIC
+</td>
+<td style="text-align:center;">
+101.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BIC
+</td>
+<td style="text-align:center;">
+105.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Log.Lik.
+</td>
+<td style="text-align:center;">
+−43.540
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMSE
+</td>
+<td style="text-align:center;">
+6.89
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>##Result section 2</p>
+<p>##Conclusion</p>
+<p>Confounders = reservation quota, terrorism, public expenditur on education, internet usage, GDP per capita, general liberal mindset has imcreased</p>
+<p>question: should i remove the NA data?, SE kam hoga toh better haina?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
