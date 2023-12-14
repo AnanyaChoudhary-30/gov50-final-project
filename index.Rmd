@@ -22,7 +22,7 @@ A reason why this project focuses on South Asian countries is because these are 
 
 The first dataset on seats held by women in parliament is loaded below. As mentioned above, it has been sourced from the United Nations Organization. It includes the percentage value of the seats held by women in parliament of different countries. It has further been filtered to only South Asian countries.
 
-Description of variables is as follows:
+Description of variables is as follows - 
 
 region_country_area = country code as per the UN,
 country = name of the country,
